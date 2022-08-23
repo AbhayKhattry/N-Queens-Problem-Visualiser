@@ -2,11 +2,10 @@ const numberbox = document.getElementById("numberbox");
 const slider = document.getElementById("slider");
 const progressBar = document.getElementById("progress-bar")
 const playButton = document.getElementById('play-button');
-const pauseButton = document.getElementById("pause-button");
 
 const queen = '<i class="fas fa-chess-queen" style="color:#000"></i>';
 
-let n, speed, tempSpeed, q, Board = 0;
+let n, speed, q, Board = 0;
 
 // Creating array for all the possible arrangements of the N-Queen
 let array = [0, 2, 1, 1, 3, 11, 5, 41, 93, 353];
@@ -14,8 +13,6 @@ let array = [0, 2, 1, 1, 3, 11, 5, 41, 93, 353];
 // Used to store the state of the boards;
 let pos = {};
 // Setting the slider value onSlide
-speed = (100 - slider.value) * 10;
-tempSpeed = speed;
 slider.oninput = function () {
     progressBar.style.width = this.value + "%";
     speed = slider.value;
@@ -54,7 +51,7 @@ class Queen {
             const value = column.innerHTML;
 
             if (value == queen) {
-                column.style.backgroundColor = "#FB5607";
+                column.style.backgroundColor = "#FB5607";//red
                 currentColumn.innerHTML = "-"
                 return false;
             }
